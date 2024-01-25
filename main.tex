@@ -1,4 +1,5 @@
 \documentclass[titlepage]{article}
+\usepackage{graphicx}
 \title{Final Assignment:\\Integration of Tools and Practices}
 \author{Mohammad Yavari}
 \begin{document}
@@ -58,6 +59,14 @@ when you start typing it starts searching and highlighting a result!
 1. fd -e pdf\\
 2. fd -e pdf | fzf
 \subsubsection{Opening the file using Zathura}
-zathura "$(fd -e pdf | fzf)"
+zathura "\$(fd -e pdf | fzf)"
+\section{Git and FOSS}
+\subsection{Issues}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{screenshot001}
+	\caption{Sample Issue}
+	\label{fig:screenshot001}
+\end{figure}
 
 \end{document}
