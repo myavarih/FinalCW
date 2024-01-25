@@ -4,8 +4,40 @@
 \begin{document}
 \maketitle
 \tableofcontents
+\pagebreak
 \section{Git and GitHub:}
 \subsection{Repository Initialization and Commits}
 on GitHub, New Repository, Give it a Name, Clone it into Your PC (e.g. using the https link and git clone command), Create a main.tex file and .github/workflows/main.yml (further explained).
+\subsection{ GitHub Actions for LaTeX Compilation}
+first I did'nt know about the tags so I tried to do it on every push and remove the tag condition but when I discovered the releases that are created automatically and went through some difficulties and problems
+I/ learned tags and I'm happy about it!\newline
+you simply need to use the command git tag after the commit you want to be complied and then push using git push origin tagname\newline
+(I did'nt changed the main.yml file) 
+\section{Exploration Tasks}
+\subsection{Vim Advanced Features}
+\begin{enumerate}
+\item Multiple Cursors with Visual Mode:\\\\
+
+Vim allows you to use visual mode to create multiple cursors and edit multiple occurrences simultaneously.\\\\
+
+Use Ctrl+v to enter visual block mode.\\
+Move to select the desired columns or lines.\\
+Press I to insert text simultaneously on all selected lines.\\
+Press Esc to apply changes.
+\item Folding:\\\\
+
+Vim supports code folding, allowing you to collapse and expand sections of your code. This is beneficial for navigating large files or focusing on specific parts of the code.\\\\
+
+zf followed by a motion: Create a fold.\\
+zo and zc: Open and close folds, respectively.\\
+:set foldmethod=indent: Automatically fold based on the indentation.\\
+\item Marks and Jumps:\\\\
+
+Marks allow you to bookmark a location in a file. You can set a mark with m{letter}, and then jump to that mark with `{letter}.\\\\
+
+ma: Set mark a at the current cursor position.\\
+`a: Jump to the position of mark a.\\
+Jumps can be used to quickly navigate between different parts of your file. Vim also has a "jump list" (:jumps) that keeps track of recent cursor movements.\\
+\end{enumerate}
 
 \end{document}
