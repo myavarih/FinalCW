@@ -16,28 +16,22 @@ you simply need to use the command git tag after the commit you want to be compl
 \section{Exploration Tasks}
 \subsection{Vim Advanced Features}
 \begin{enumerate}
-\item Multiple Cursors with Visual Mode:\\\\
-
-Vim allows you to use visual mode to create multiple cursors and edit multiple occurrences simultaneously.\\\\
-
+\item Multiple Cursors with Visual Mode:\\
+Vim allows you to use visual mode to create multiple cursors and edit multiple occurrences simultaneously.\\
 Use Ctrl+v to enter visual block mode.\\
 Move to select the desired columns or lines.\\
 Press I to insert text simultaneously on all selected lines.\\
 Press Esc to apply changes.
-\item Folding:\\\\
-
-Vim supports code folding, allowing you to collapse and expand sections of your code. This is beneficial for navigating large files or focusing on specific parts of the code.\\\\
-
+\item Folding:\\
+Vim supports code folding, allowing you to collapse and expand sections of your code. This is beneficial for navigating large files or focusing on specific parts of the code.\\
 zf followed by a motion: Create a fold.\\
 zo and zc: Open and close folds, respectively.\\
 :set foldmethod=indent: Automatically fold based on the indentation.\\
-\item Marks and Jumps:\\\\
-
-Marks allow you to bookmark a location in a file. You can set a mark with m{letter}, and then jump to that mark with `{letter}.\\\\
-
+\item Marks and Jumps:\\
+Marks allow you to bookmark a location in a file. You can set a mark with m{letter}, and then jump to that mark with `{letter}.\\
 ma: Set mark a at the current cursor position.\\
 `a: Jump to the position of mark a.\\
-Jumps can be used to quickly navigate between different parts of your file. Vim also has a "jump list" (:jumps) that keeps track of recent cursor movements.\\
+Jumps can be used to quickly navigate between different parts of your file. Vim also has a "jump list" (:jumps) that keeps track of recent cursor movements.
 \end{enumerate}
 \subsection{Memory profiling}
 Normally C stores data in static mode (as I know), it has pros and cons, it's more stable and reliable and also easier but gives us less control, if we want control and flexibility we can use dynamic memory allocation
@@ -52,5 +46,18 @@ If your program forgets to free up memory (a memory leak), Valgrind will point i
 \paragraph{Memory Corruption Detection:}
 Valgrind can detect issues like accessing memory beyond its boundaries, which can lead to unpredictable behavior and crashes.(Like in arrays in c)\\
 If your program writes to or reads from memory it shouldn't, Valgrind can catch these errors.
-\\\\ And More...
+And More...
+\subsection{GNU/Linux Bash Scripting}
+\subsubsection{fzf}
+Fuzzy searching is like having a helpful friend who finds what you're looking for even if you don't know the exact details. It's a search technique that doesn't demand precision. Instead, it accommodates small mistakes, typos, or variations in spelling.
+\\ it brings "fuzziness into the search"!
+\\\\
+it takes the list of files and directories from the ls command and allows you to interactively search and select one of them using a fuzzy search algorithm.\\
+when you start typing it starts searching and highlighting a result!
+\subsubsection{Using fzf to find your favorite PDF}
+1. fd -e pdf\\
+2. fd -e pdf | fzf
+\subsubsection{Opening the file using Zathura}
+zathura "$(fd -e pdf | fzf)"
+
 \end{document}
