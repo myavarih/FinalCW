@@ -39,5 +39,18 @@ ma: Set mark a at the current cursor position.\\
 `a: Jump to the position of mark a.\\
 Jumps can be used to quickly navigate between different parts of your file. Vim also has a "jump list" (:jumps) that keeps track of recent cursor movements.\\
 \end{enumerate}
-
+\subsection{Memory profiling}
+Normally C stores data in static mode (as I know), it has pros and cons, it's more stable and reliable and also easier but gives us less control, if we want control and flexibility we can use dynamic memory allocation
+which we can use by functions like malloc / calloc / realloc / free, \newline the syntax and usage are so simple!
+\subsubsection{Memory Leak}
+a memory leak happens when your program forgets to return the borrowed space. It's like borrowing a pen but never giving it back. If you keep doing this, you run out of pens, and your backpack gets heavy with stuff you don't need.\newline
+in other words, remember to free() after allocation!
+\subsubsection{Memory profilers}
+\paragraph{Memory Leak Detection:}
+Valgrind keeps track of every allocation and deallocation of memory during the execution of a program.\\
+If your program forgets to free up memory (a memory leak), Valgrind will point it out. It tells you where the leak occurred and how much memory is involved.
+\paragraph{Memory Corruption Detection:}
+Valgrind can detect issues like accessing memory beyond its boundaries, which can lead to unpredictable behavior and crashes.(Like in arrays in c)\\
+If your program writes to or reads from memory it shouldn't, Valgrind can catch these errors.
+\\\\ And More...
 \end{document}
