@@ -1,65 +1,103 @@
 \documentclass[titlepage]{article}
 \usepackage{graphicx}
+\usepackage{titletoc}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref} % Added hidelinks to remove the red borders
+\renewcommand{\maketitle}{
+	\begin{titlepage}
+		\centering
+		
+		{\Huge\bfseries Final Assignment:} \par
+		\vspace{0.5cm}
+		
+		{\Large Integration of Tools and Practices} \par
+		\vspace{1.5cm}
+		
+		
+		\textbf{By Mohammad Yavari}
+	
+		
+		\vfill
+		
+		{\large Computer Workshop} \par
+		
+		\vspace{1cm}
+		
+		{\large \today} \par
+		
+		\vspace{1cm}
+		
+		{\large Iran University of Science \& Technology} \par
+	\end{titlepage}
+}
 \title{Final Assignment:\\Integration of Tools and Practices}
 \author{Mohammad Yavari}
+% Customize section and subsection formatting
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Customize Table of Contents formatting
+\titlecontents{section}[0em]{\vspace{0.5em}}{\hyperlink{\thesection}{\bfseries\contentslabel{2em}}}{}{\hfill\contentspage}
+\titlecontents{subsection}[2em]{}{\hyperlink{\thesubsection}{\contentslabel{2.5em}}}{}{\hfill\contentspage}
 \begin{document}
 \maketitle
 \tableofcontents
 \pagebreak
 \section{Git and GitHub:}
 \subsection{Repository Initialization and Commits}
-on GitHub, New Repository, Give it a Name, Clone it into Your PC (e.g. using the https link and git clone command), Create a main.tex file and .github/workflows/main.yml (further explained).
+on GitHub, New Repository, Give it a Name, Clone it into Your PC (e.g. using the \texttt{https} link and \texttt{git clone} command), Create a \texttt{main.tex} file and \texttt{.github/workflows/main.yml} (further explained).
 \subsection{ GitHub Actions for LaTeX Compilation}
-first I did'nt know about the tags so I tried to do it on every push and remove the tag condition but when I discovered the releases that are created automatically and went through some difficulties and problems
-I/ learned tags and I'm happy about it!\newline
-you simply need to use the command git tag after the commit you want to be complied and then push using git push origin tagname\newline
-(I did'nt changed the main.yml file) 
+first I did'nt know about the tags so I tried to do it on every push and remove the tag condition but when I discovered the releases that are created automatically and went through some difficulties and problems.\\
+So I learned tags and I'm happy about it!\\
+You simply need to use the command \texttt{git tag} after the commit you want to be complied and then push using \texttt{git push origin tag-name} (you need \texttt{git push} too)\\
+(I did'nt change the \texttt{main.yml} file) 
 \section{Exploration Tasks}
 \subsection{Vim Advanced Features}
 \begin{enumerate}
-\item Multiple Cursors with Visual Mode:\\
+\item \textbf{Multiple Cursors with Visual Mode:}\\
 Vim allows you to use visual mode to create multiple cursors and edit multiple occurrences simultaneously.\\
-Use Ctrl+v to enter visual block mode.\\
-Move to select the desired columns or lines.\\
-Press I to insert text simultaneously on all selected lines.\\
-Press Esc to apply changes.
-\item Folding:\\
+1. Use \texttt{Ctrl+v} to enter visual block mode.\\
+2. Move to select the desired columns or lines.\\
+3. Press \texttt{I} to insert text simultaneously on all selected lines.\\
+4. Press \texttt{Esc} to apply changes.
+\item \textbf{Folding:}\\
 Vim supports code folding, allowing you to collapse and expand sections of your code. This is beneficial for navigating large files or focusing on specific parts of the code.\\
-zf followed by a motion: Create a fold.\\
-zo and zc: Open and close folds, respectively.\\
-:set foldmethod=indent: Automatically fold based on the indentation.\\
-\item Marks and Jumps:\\
-Marks allow you to bookmark a location in a file. You can set a mark with m{letter}, and then jump to that mark with `{letter}.\\
-ma: Set mark a at the current cursor position.\\
-`a: Jump to the position of mark a.\\
-Jumps can be used to quickly navigate between different parts of your file. Vim also has a "jump list" (:jumps) that keeps track of recent cursor movements.
+1. \texttt{zf} followed by a \texttt{motion}: Create a fold.\\
+2. \texttt{zo} and \texttt{zc}: Open and close folds, respectively.\\
+3. \texttt{:set foldmethod=indent}: Automatically fold based on the indentation.\\
+\item \textbf{Marks and Jumps:}\\
+Marks allow you to bookmark a location in a file. You can set a mark with \texttt{m{letter}}, and then jump to that mark with \texttt{`{letter}}.\\
+1. \texttt{ma}: Set mark a at the current cursor position.\\
+2. \texttt{`a}: Jump to the position of mark \texttt{a}.\\
+Jumps can be used to quickly navigate between different parts of your file. Vim also has a "jump list" (\texttt{:jumps}) that keeps track of recent cursor movements.
 \end{enumerate}
 \subsection{Memory profiling}
 Normally C stores data in static mode (as I know), it has pros and cons, it's more stable and reliable and also easier but gives us less control, if we want control and flexibility we can use dynamic memory allocation
-which we can use by functions like malloc / calloc / realloc / free, \newline the syntax and usage are so simple!
+which we can use by functions like \texttt{malloc() / calloc() / realloc() / free()}, \newline the syntax and usage are so simple!
 \subsubsection{Memory Leak}
 a memory leak happens when your program forgets to return the borrowed space. It's like borrowing a pen but never giving it back. If you keep doing this, you run out of pens, and your backpack gets heavy with stuff you don't need.\newline
-in other words, remember to free() after allocation!
-\subsubsection{Memory profilers}
+in other words, remember to \texttt{free()} after allocation!
+\subsubsection{Memory Profilers}
 \paragraph{Memory Leak Detection:}
 Valgrind keeps track of every allocation and deallocation of memory during the execution of a program.\\
 If your program forgets to free up memory (a memory leak), Valgrind will point it out. It tells you where the leak occurred and how much memory is involved.
 \paragraph{Memory Corruption Detection:}
-Valgrind can detect issues like accessing memory beyond its boundaries, which can lead to unpredictable behavior and crashes.(Like in arrays in c)\\
+Valgrind can detect issues like accessing memory beyond its boundaries, which can lead to unpredictable behavior and crashes.(Like arrays in c)\\
 If your program writes to or reads from memory it shouldn't, Valgrind can catch these errors.
-And More...
+\\And More...
 \subsection{GNU/Linux Bash Scripting}
 \subsubsection{fzf}
-Fuzzy searching is like having a helpful friend who finds what you're looking for even if you don't know the exact details. It's a search technique that doesn't demand precision. Instead, it accommodates small mistakes, typos, or variations in spelling.
-\\ it brings "fuzziness into the search"!
+\textbf{Q1: }Fuzzy searching is like having a helpful friend who finds what you're looking for even if you don't know the exact details. It's a search technique that doesn't demand precision. Instead, it accommodates small mistakes, typos, or variations in spelling.
+\\ it brings "fuzziness" into the search!
 \\\\
-it takes the list of files and directories from the ls command and allows you to interactively search and select one of them using a fuzzy search algorithm.\\
-when you start typing it starts searching and highlighting a result!
+\textbf{Q2: }it takes the list of files and directories from the ls command and allows you to interactively search and select one of them using a fuzzy search algorithm.\\
+when you start typing it starts searching and highlighting a result!\\
+(the output of \texttt{ls} is sent to \texttt{fzf} as input)
 \subsubsection{Using fzf to find your favorite PDF}
-1. fd -e pdf\\
-2. fd -e pdf | fzf
+1. \texttt{fd -e pdf}\\
+2. \texttt{fd -e pdf | fzf}
 \subsubsection{Opening the file using Zathura}
-zathura "\$(fd -e pdf | fzf)"
+\texttt{zathura "\$(fd -e pdf | fzf)"}
 \section{Git and FOSS}
 \subsection{Issues}
 \begin{figure}[h]
